@@ -7,7 +7,8 @@ app = Flask(__name__)
 @app.route("/webhock", methods=["POST"])
 def listen_to_hock():
     print(request.json)
-    f = open("dump.json", request.json)
+    f = open("dump.json", 'w')
+    f.write(request.json)
     f.close()
     return Response(status=200)
 
