@@ -8,7 +8,7 @@ app = Flask(__name__)
 def listen_to_hock():
     print(request.json)
     f = open("dump.json", 'w')
-    f.write(request.json)
+    f.write(json.dumps(request.json))
     f.close()
     return Response(status=200)
 
